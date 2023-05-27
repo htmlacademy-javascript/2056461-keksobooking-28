@@ -49,7 +49,7 @@ const pristine = new Pristine(advertiseForm, {
   errorTextTag: 'span'
 });
 
-const titleValidator = (value) => value.length > TITLE_LENGTH.min && value.length < TITLE_LENGTH.max || value.trim() === '';
+const titleValidator = (value) => value.length > TITLE_LENGTH.min && value.length < TITLE_LENGTH.max;
 
 pristine.addValidator(
   titleField,

@@ -27,3 +27,9 @@ sliderElement.noUiSlider.on('slide', () => {
 priceField.addEventListener('input', (evt) => {
   sliderElement.noUiSlider.set(evt.target.value);
 });
+
+const resetSlider = () => {
+  sliderElement.noUiSlider.updateOptions({start: 5000});
+};
+
+export {resetSlider};

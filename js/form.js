@@ -4,6 +4,7 @@ import {postData} from './api.js';
 import {showModal, successModalTemplate, errorModalTemplate} from './pop-ups.js';
 import {blockSubmitButton, unblockSubmitButton} from './utils.js';
 import {resetFilters} from './filter.js';
+import {resetSlider} from './slider.js';
 
 const adsForm = document.querySelector('.ad-form');
 const timeSet = adsForm.querySelector('.ad-form__element--time');
@@ -35,6 +36,7 @@ adsForm.addEventListener('submit', (evt) => {
           showModal(successModalTemplate);
           formReset(adsForm);
           resetFilters();
+          resetSlider();
         } else {
           showModal(errorModalTemplate);
         }
@@ -52,4 +54,5 @@ formResetButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   formReset(adsForm);
   resetFilters();
+  resetSlider();
 });
