@@ -15,7 +15,7 @@ const setActiveForm = () => {
   formElements.forEach((element) => {
     element.disabled = false;
   });
-}
+};
 
 const setInactiveFilter = () => {
   mapFilter.classList.add('map__filters--disabled');
