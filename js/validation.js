@@ -103,6 +103,6 @@ roomsNumber.addEventListener('change', () => {
   pristine.validate(roomsGuests);
 });
 
-const isValid = () => pristine.validate;
+const isValid = () => pristine.validate();
 
 export {isValid, priceValidator, priceValidatorMessage};
