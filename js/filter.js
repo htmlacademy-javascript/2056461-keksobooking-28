@@ -1,6 +1,6 @@
 import {renderMarkers, resetMap} from './map.js';
 import {setActiveFilter} from './page-states.js';
-import {PRICE_RANGE, MAX_PINS, TIMER, CITY_CENTER} from './constants.js';
+import {PRICE_RANGE, MAX_PINS, TIMER} from './constants.js';
 import {debounce} from './utils.js';
 
 const mapFilters = document.querySelector('.map__filters');
