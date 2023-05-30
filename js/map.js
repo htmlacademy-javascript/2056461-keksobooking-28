@@ -82,7 +82,7 @@ const renderMarkers = (points) => {
   });
 };
 
-const loadMap = () => new Promise((resolve, reject) => {
+const loadMap = () => new Promise((resolve) => {
   map
     .on('load', () => {
       setActiveForm();
