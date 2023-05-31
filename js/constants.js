@@ -4,12 +4,21 @@ const SERVER_LINK = {
 };
 
 const MAX_PINS = 10;
+const CARD_IMAGE_SIZE = {
+  width: 45,
+  heights: 40,
+};
+
 const TILE_LAYER = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const COPYRIGHT = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 const ZOOM = 12;
 
 const TIMER = 500;
 const ALERT_SHOW_TIME = 3000;
+
+const SLIDER_START_POINT = 5000;
+const SLIDER_EVENT_TIMER = 200;
+const SLIDER_STEP = 1;
 
 const PROPERTY_TYPE = {
   flat: 'Квартира',
@@ -38,6 +47,8 @@ const PROPERTY_PRICE = {
   max: 100000,
 };
 
+const FLAT_PIC_PREVIEW_SIZE = 70;
+
 const CITY_CENTER = {
   lat: 35.68951,
   lng: 139.69211,
@@ -64,5 +75,10 @@ export {
   TILE_LAYER,
   COPYRIGHT,
   ZOOM,
-  FILE_TYPES
+  FILE_TYPES,
+  SLIDER_START_POINT,
+  SLIDER_EVENT_TIMER,
+  SLIDER_STEP,
+  CARD_IMAGE_SIZE,
+  FLAT_PIC_PREVIEW_SIZE,
 };

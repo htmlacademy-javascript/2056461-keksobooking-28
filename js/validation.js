@@ -1,4 +1,7 @@
-import {TITLE_LENGTH, PROPERTY_PRICE, FILE_TYPES} from './constants.js';
+import {TITLE_LENGTH,
+  PROPERTY_PRICE,
+  FILE_TYPES,
+  FLAT_PIC_PREVIEW_SIZE} from './constants.js';
 
 const advertiseForm = document.querySelector('.ad-form');
 const avatarField = advertiseForm.querySelector('#avatar');
@@ -23,8 +26,8 @@ avatarField.addEventListener('change', () => {
 const createImageElement = (image) => {
   const imageElement = document.createElement('img');
   imageElement.src = URL.createObjectURL(image);
-  imageElement.width = 70;
-  imageElement.height = 70;
+  imageElement.width = FLAT_PIC_PREVIEW_SIZE;
+  imageElement.height = FLAT_PIC_PREVIEW_SIZE;
   return imageElement;
 };
 
@@ -49,22 +52,22 @@ const pristine = new Pristine(advertiseForm, {
   errorTextTag: 'span'
 });
 
-const titleValidator = (value) => value.length > TITLE_LENGTH.min && value.length < TITLE_LENGTH.max;
+const validateTitle = (value) => value.length > TITLE_LENGTH.min && value.length < TITLE_LENGTH.max;
 
 pristine.addValidator(
   titleField,
-  titleValidator,
+  validateTitle,
   `Длинна строки от ${TITLE_LENGTH.min} до ${TITLE_LENGTH.max} символов`,
 );
 
-const priceValidator = (value) => value >= PROPERTY_PRICE[propertyType.value] && value <= PROPERTY_PRICE.max;
+const validatePrice = (value) => value >= PROPERTY_PRICE[propertyType.value] && value <= PROPERTY_PRICE.max;
 
-const priceValidatorMessage = () => priceField.value > PROPERTY_PRICE.max ? `Максимальная цена ${PROPERTY_PRICE.max} руб.` : `Минимальная цена ${PROPERTY_PRICE[propertyType.value]} руб.`;
+const getPriceValidationMessage = () => priceField.value > PROPERTY_PRICE.max ? `Максимальная цена ${PROPERTY_PRICE.max} руб.` : `Минимальная цена ${PROPERTY_PRICE[propertyType.value]} руб.`;
 
 pristine.addValidator(
   priceField,
-  priceValidator,
-  priceValidatorMessage,
+  validatePrice,
+  getPriceValidationMessage,
 );
 
 propertyType.addEventListener('change', () => {
@@ -78,9 +81,9 @@ const roomsCapacity = {
   100: ['0'],
 };
 
-const capacityValidator = () => roomsCapacity[roomsNumber.value].includes(roomsGuests.value);
+const validateCapacity = () => roomsCapacity[roomsNumber.value].includes(roomsGuests.value);
 
-const capacityMessage = () => {
+const getCapacityMessage = () => {
   switch (roomsNumber.value) {
     case '1':
       return 'Максимум 1 гость';
@@ -95,8 +98,8 @@ const capacityMessage = () => {
 
 pristine.addValidator(
   roomsGuests,
-  capacityValidator,
-  capacityMessage
+  validateCapacity,
+  getCapacityMessage
 );
 
 roomsNumber.addEventListener('change', () => {
@@ -105,4 +108,4 @@ roomsNumber.addEventListener('change', () => {
 
 const isValid = () => pristine.validate();
 
-export {isValid, priceValidator, priceValidatorMessage};
+export {isValid};

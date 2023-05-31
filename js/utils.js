@@ -3,9 +3,6 @@ const debounce = (callback, timeoutDelay) => {
   return (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
-
-    // Таким образом цикл «поставить таймаут - удалить таймаут» будет выполняться,
-    // пока действие совершается чаще, чем переданная задержка timeoutDelay
   };
 };
 
