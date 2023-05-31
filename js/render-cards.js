@@ -1,4 +1,4 @@
-import {PROPERTY_TYPE} from './constants.js';
+import {PROPERTY_TYPE, CARD_IMAGE_SIZE} from './constants.js';
 
 const cardTemplate = document.querySelector('#card')
   .content
@@ -12,8 +12,8 @@ const getPhotos = (offer, data) => {
     data.forEach((element) => {
       const img = document.createElement('img');
       img.classList.add('popup__photo');
-      img.width = 45;
-      img.height = 40;
+      img.width = CARD_IMAGE_SIZE.width;
+      img.height = CARD_IMAGE_SIZE.heights;
       img.src = element;
       photosList.append(img);
     });
